@@ -1,0 +1,382 @@
+% % % % % Packages % % % % %
+\documentclass[10pt, letterpaper]{article}
+\usepackage[
+    ignoreheadfoot, 
+    top=2 cm,
+    bottom=2 cm, 
+    left=2 cm, 
+    right=2 cm,
+    footskip=1.0 cm, 
+]{geometry}
+\usepackage{titlesec} 
+\usepackage{tabularx} 
+\usepackage{array} 
+\usepackage[dvipsnames]{xcolor} 
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem} 
+\usepackage{fontawesome5} 
+\usepackage{amsmath} 
+\usepackage[
+    pdftitle={Trung Nhan's CV},
+    pdfauthor={John Doe},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} 
+\usepackage[pscoord]{eso-pic} 
+\usepackage{calc} 
+\usepackage{bookmark} 
+\usepackage{lastpage} 
+\usepackage{changepage} 
+\usepackage{paracol} 
+\usepackage{ifthen} 
+\usepackage{needspace}
+\usepackage{iftex}
+\usepackage{ragged2e}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% % % % % Some settings % % % % %
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} 
+\pagestyle{empty} 
+\setcounter{secnumdepth}{0} 
+\setlength{\parindent}{0pt} 
+\setlength{\topskip}{0pt} 
+\setlength{\columnsep}{0.15cm} 
+\pagenumbering{gobble} 
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    -1pt
+}
+{
+    0.3 cm
+}
+{
+    0.2 cm
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} 
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}
+{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}
+{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}
+{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}
+{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} 
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\newcommand{\placelastupdatedtext}{
+  \AddToShipoutPictureFG*{
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in September 2024}\hspace{\widthof{Last updated in September 2024}}
+    }}}
+  }
+}
+
+\let\hrefWithoutArrow\href
+
+% % % % % Content % % % % %
+
+\begin{document}
+    \justifying
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+    \begin{header}
+    \centering
+    {\fontsize{26pt}{26pt}\selectfont\bfseries Nguyen Trung Nhan}
+
+    \vspace{6pt}
+
+    \normalsize
+    Ho Chi Minh City \,|\, 
+    \href{mailto:nhan.nguyenpercy@hcmut.edu.vn}{nhan.nguyenpercy@hcmut.edu.vn} \,|\, 
+    +84~834~614~120 \\[2pt]
+    \href{https://www.linkedin.com/in/percynguyen2005/}{linkedin.com/in/percynguyen2005} \,|\, 
+    \href{https://github.com/nhanggwp}{github.com/nhanggwp}
+\end{header}
+
+    \vspace{3 pt}
+
+    % % % % % About me % % % % %
+    \section{About me}
+\begin{onecolentry}
+I am a Computer Science student at Ho Chi Minh City University of Technology – Vietnam National University, seeking a Backend / Full-Stack Software Engineering internship with a strong interest in \textbf{Full-stack development}. I have hands-on experience in both backend and frontend development using JavaScript, Python, and C++. I also have a basic understanding of software development processes and system workflows. I am eager to learn, strengthen my technical skills, and contribute to real-world software products in a professional engineering environment.
+\end{onecolentry}
+
+    % % % % % Education % % % % %
+   \section{Education}
+\begin{twocolentry}{
+    September 2023 – Present
+}
+    \textbf{Ho Chi Minh City University of Technology - Vietnam National University}
+\end{twocolentry}
+
+\begin{onecolentry}
+    Third-year student in Computer Science, English-taught Program. \\
+    GPA: \textbf{3.8 / 4.0} (\textbf{8.9 / 10})
+\end{onecolentry}
+
+
+\section{Skills}
+\begin{onecolentry}
+\textbf{Programming Languages:} JavaScript, Python, C, C++, Java, R
+\end{onecolentry}
+\vspace{0.1 cm}
+
+\begin{onecolentry}
+\textbf{Backend:} FastAPI, NestJS
+\end{onecolentry}
+\vspace{0.1 cm}
+
+\begin{onecolentry}
+\textbf{Frontend:} React.js, React Native, TailwindCSS
+\end{onecolentry}
+\vspace{0.1 cm}
+
+\begin{onecolentry}
+\textbf{Databases:} PostgreSQL, MySQL
+\end{onecolentry}
+\vspace{0.1 cm}
+
+\begin{onecolentry}
+\textbf{DevOps / Tools:} Docker, Git, Redis, Nginx, Figma
+\end{onecolentry}
+
+
+    % % % % % Languages % % % % %
+    \section{Languages}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{Vietnamese:} Native.
+                \item \textbf{English:} IELTS 6.0 (2023).
+            \end{highlights}
+        \end{onecolentry}
+
+    % % % % % Experience % % % % %
+    % \section{Experience}
+    %     % % % Dai-ichi % % %
+    %     \begin{twocolentry}{
+    %         June - August 2025
+    %     }
+    %         \textbf{Dai-ichi Life Insurance Company of Vietnam}
+    %     \end{twocolentry}
+    %     \textit{Frontend Developer Intern}
+
+    %     \vspace{0.10 cm}
+    %     \begin{onecolentry}
+    %         \begin{highlights}
+    %             \item Participating in agile development to enhance the Dai-ichi ON CoverGo insurance platform.
+    %             \item Developing and optimizing frontend features with Vue.js, including code rules and UI/UX improvements.
+    %             \item Fixing critical bugs, improving data consistency (Vuex store), optimizing API call handling, and refactoring code for maintainability.
+    %             \item Conducting testing, documenting findings, and proposing solutions to improve platform stability and user experience. 
+    %         \end{highlights}
+    %     \end{onecolentry}
+    %     \vspace{0.1 cm}       
+
+    % % % % % Projects % % % % %
+    \section{Projects}
+
+% % % HCMUT - Tutor Supporting System % % %
+\begin{twocolentry}{
+    Sep 2025
+}
+    \textbf{HCMUT – Tutor Supporting System (HCMUT-TSS)}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+\begin{highlights}
+    \item Designed ERD and implemented PostgreSQL database schema using Supabase.
+    \item Built backend services for a tutor–student support platform for Ho Chi Minh City University of Technology.
+    \item Integrated AI-powered question answering module to provide automated student support.
+    \item Deployed full-stack application on VPS server.
+    \item Tech stack: React.js, FastAPI, Python, Docker, PostgreSQL, Nginx.
+    \item GitHub: \href{https://github.com/Vinhphu159874123/Tutor-suporting-system.git}{https://github.com/Vinhphu159874123/Tutor-suporting-system.git}
+    \item Live demo: \href{https://tss.percytony.com/}{https://tss.percytony.com/}
+\end{highlights}
+
+\end{onecolentry}
+\vspace{0.1 cm}
+        \vspace{0.1 cm}
+
+%%% Bkinema %%%
+\begin{twocolentry}{
+    Oct 2025 - Nov 2025
+}
+    \textbf{Bkinema – Online Movie Booking Platform}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+\item Developed full-stack movie booking system with real-time seat selection, payment flow, and pricing logic using React.js and NestJS.
+\item Built RESTful APIs for booking management, coupon validation, and membership discount calculation with TypeScript and TypeORM.
+\item Implemented booking timeout mechanism with automatic cancellation service using NestJS Scheduler to prevent seat conflicts.
+\item Designed responsive booking and customer dashboard UI with real-time countdown timer.
+\item Deployed application on VPS with Nginx reverse proxy and MySQL database.
+
+\item Tech stack: React.js, NestJS, MySQL, Nginx, TypeORM
+\item GitHub: \href{https://github.com/longlephamtien/DS251-Assignment}{https://github.com/longlephamtien/DS251-Assignment}
+\item Live demo: \href{https://bkinema.percytony.com/}{https://bkinema.percytony.com/}
+\end{highlights}
+
+\end{onecolentry}
+\vspace{0.1 cm}
+
+\vspace{0.1 cm}
+% % % HireMatch % % %
+\begin{twocolentry}{
+    Jan 2026
+}
+    \textbf{HireMatch - Job Matching \& Hiring Management System}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+     \item Developed RESTful backend APIs for CV extraction, scoring, and AI-based resume optimization.
+\item Designed PostgreSQL database schema and integrated Supabase authentication.
+\item Deployed full-stack application using Docker, Vercel, and Railway.
+        \item  Tech stack: FastAPI, Python, React.js, Vite, Docker, Vecrel, Railway
+        \item GitHub: \href{https://github.com/nhanyeuem/HireMatch-CV-Sorter-Final.git}{https://github.com/nhanyeuem/HireMatch-CV-Sorter-Final.git}
+        \item Live demo: \href{https://hirematch-nine.vercel.app/}{https://hirematch-nine.vercel.app/}
+    \end{highlights}
+\end{onecolentry}
+
+
+
+\vspace{0.1 cm}
+
+
+% % % MediTrack % % %
+\begin{twocolentry}{
+Jul 2025
+}
+    \textbf{MediTrack – Medication Safety Platform}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Implemented backend features for OCR-based text extraction and user data synchronization to PostgreSQL database.
+        \item Developed frontend web interface for medication management system.
+        \item Achievement: \textbf{First Prize – UIT Data Science Challenge}.
+        \item Tech stack: Python, FastAPI, React.js, React Native, Docker, PostgreSQL, Expo.
+\item GitHub: \href{https://github.com/nhanggwp/BKU-MEDITRACK\_Sourcecode.git}{https://github.com/nhanggwp/BKU-MEDITRACK\_Sourcecode.git}
+\item  Demo: \href{https://www.youtube.com/watch?v=kP5NGEErnXY}{Youtube demo}
+    \end{highlights}
+\end{onecolentry}
+\vspace{0.1 cm}
+
+% % % GreenBooth % % %
+\begin{twocolentry}{
+    Aug 2025
+}
+    \textbf{GreenBooth – Smart Waste Classification System}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Developed frontend scanning interface for real-time object recognition.
+        \item Built backend services integrating object detection model with weight sensor system.
+        \item Achievement: \textbf{First Prize – Bach Khoa Innovation (University–Enterprise Cooperation Category)}.
+        \item Tech stack: React.js, Python, FastAPI, Arduino, TensorFlow Lite,
+        \item GitHub: \href{https://github.com/longlephamtien/GreenBooth.git}{https://github.com/longlephamtien/GreenBooth.git}
+    \end{highlights}
+\end{onecolentry}
+\vspace{0.1 cm}
+
+
+    % % % % % Expertise % % % % %
+        
+    % % % % % Certificates % % % % %
+\section{Achievements}
+
+\begin{onecolentry}
+\begin{highlights}
+    \item \textbf{First Prize – Bach Khoa Innovation (University–Enterprise Cooperation Category)} \hfill 2025
+    \item \textbf{First Prize – UIT Data Science Challenge} \hfill 2025
+    \item \textbf{Top 20 – Bach Khoa Innovation (University Student Category)} \hfill 2025
+    \item \textbf{OISP Scholarship (Semesters 1–3)} \hfill 2023--2025
+    \item \textbf{Academic Incentive Scholarship (Semester 4)} \hfill 2024--2025
+\end{highlights}
+\end{onecolentry}
+
+\end{document}

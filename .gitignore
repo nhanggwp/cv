@@ -1,0 +1,33 @@
+# LaTeX generated files
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.fmt
+*.fot
+*.lb
+*.log
+*.lot
+*.out
+*.pdf
+*.synctex.gz
+*.toc
+
+# Virtual environment
+venv/
+vevn/
+env/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
